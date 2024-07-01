@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: addressbook-boot-pod
+  labels:
+    app: addressbook-boot
+spec:
+  containers:
+  - name: addressbook-boot-container
+    image: addressbook-boot

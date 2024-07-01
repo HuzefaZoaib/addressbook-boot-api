@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addressbook-boot-deployment
+  labels:
+    app: addressbook-boot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: addressbook-boot
+  template:
+    metadata:
+      labels:
+        app: addressbook-boot
+    spec:
+      containers:
+      - name: addressbook-boot-container
+        image: addressbook-boot
+        ports:
+        - containerPort: 8080
