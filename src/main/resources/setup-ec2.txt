@@ -1,0 +1,34 @@
+sudo yum install java-21-amazon-corretto-headless
+java -version
+# Setting JAVA_HOME is not required
+
+https://devopscube.com/install-maven-guide/
+sudo ln -s /opt/apache-maven-3.9.6 /opt/maven
+sudo vi /etc/profile.d/maven.sh
+sudo chmod +x /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
+mvn -ver
+
+sudo yum install git -y 
+git --version
+
+ssh-keygen -t ed25519 -C "huzefa_zoaib2000@yahoo.com" 
+pbcopy < ~/.ssh/id_ed25519.pub
+
+cd /home/ec2-user
+git clone git@github.com:HuzefaZoaib/addressbook-boot-api.git
+
+sudo yum update -y
+sudo yum -y install docker
+sudo service docker start
+docker version
+sudo usermod -a -G docker ec2-user
+sudo chmod 666 /var/run/docker.sock
+docker version
+
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+
+
+
