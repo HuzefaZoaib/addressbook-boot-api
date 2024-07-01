@@ -23,6 +23,7 @@
 target/
 build/
 .mvn/
+repository/
 
 # IDE folders
 .vscode/
