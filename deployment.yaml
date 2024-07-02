@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: addressbook-boot-container
-        image: huzefazoaib/addressbook:boot
+        image: huzefazoaib/addressbook-boot:latest
         ports:
         - containerPort: 8080

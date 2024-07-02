@@ -17,8 +17,8 @@
 	<description>Address Book API</description>
 	<properties>
 		<java.version>17</java.version>
-		<docker.repo>addressbook</docker.repo>
-        <docker.tag>boot</docker.tag>
+		<docker.repo>huzefazoaib/addressbook-boot</docker.repo>
+        <docker.tag>latest</docker.tag>
         <docker.registry>registry.hub.docker.com</docker.registry>
         <docker.name>${docker.registry}/${docker.repo}/${project.build.finalName}:${docker.tag}</docker.name>
 	</properties>
