@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
   - name: addressbook-boot-container
-    image: addressbook-boot
+    image: huzefazoaib/addressbook:boot
