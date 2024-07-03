@@ -31,4 +31,24 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose version
 
 
+# install kubectl client
+
+# install minikube
+
+# install helm
+# install tiller
+
+# install eksctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+# EKS Cluster - https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-eks-cluster.html
+aws ec2 create-key-pair --region us-east-1 --key-name eks-cluster-keypair
+
+
+
+
+
+
 
