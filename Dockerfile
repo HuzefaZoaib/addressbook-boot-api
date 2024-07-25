@@ -16,3 +16,4 @@ WORKDIR /opt/target
 ENV _JAVA_OPTIONS '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005'
 
 CMD ["java", "-jar", "addressbook-boot-api-0.0.1-SNAPSHOT.jar", "com.example.addressbook.AddressBookApplication"]
+
