@@ -17,6 +17,10 @@
 	<description>Address Book API</description>
 	<properties>
 		<java.version>17</java.version>
+		<docker.repo>huzefazoaib/addressbook-boot</docker.repo>
+        <docker.tag>latest</docker.tag>
+        <docker.registry>registry.hub.docker.com</docker.registry>
+        <docker.name>${docker.registry}/${docker.repo}/${project.build.finalName}:${docker.tag}</docker.name>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,5 +58,47 @@
 			</plugin>
 		</plugins>
 	</build>
+
+    <profiles>
+        <profile>
+            <id>jib</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                        <version>0.10.1</version>
+                        <configuration>
+                            <from>
+                                <image>amazoncorretto:21</image>
+                            </from>
+                            <to>
+                                <image>${docker.name}</image>
+                            </to>
+                            <container>
+                                <environment>
+                                    <_JAVA_OPTIONS>'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005'</_JAVA_OPTIONS>
+                                    <swarm.http.port>8080</swarm.http.port>
+                                </environment>
+                                <ports>
+                                    <port>8080</port>
+                                    <port>5005</port>
+                                </ports>
+                                <useCurrentTimestamp>true</useCurrentTimestamp>
+                            </container>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>dockerBuild</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

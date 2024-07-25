@@ -1,0 +1,55 @@
+sudo yum install java-21-amazon-corretto-headless
+java -version
+# Setting JAVA_HOME is not required
+
+https://devopscube.com/install-maven-guide/
+sudo ln -s /opt/apache-maven-3.9.6 /opt/maven
+sudo vi /etc/profile.d/maven.sh
+sudo chmod +x /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
+mvn -ver
+
+sudo yum install git -y 
+git --version
+
+ssh-keygen -t ed25519 -C "huzefa_zoaib2000@yahoo.com" 
+pbcopy < ~/.ssh/id_ed25519.pub
+
+cd /home/ec2-user
+git clone git@github.com:HuzefaZoaib/addressbook-boot-api.git
+
+sudo yum update -y
+sudo yum -y install docker
+sudo service docker start
+docker version
+sudo usermod -a -G docker ec2-user
+sudo chmod 666 /var/run/docker.sock
+docker version
+
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+
+
+# install kubectl client
+
+# install minikube
+
+# install helm
+# install tiller
+
+# install eksctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+# EKS Cluster - https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-eks-cluster.html
+aws ec2 create-key-pair --region us-east-1 --key-name eks-cluster-keypair
+
+
+# ssh tunnel
+# https://cloudvesna.com/step-by-step-guide-running-kubernetes-on-aws-ec2-with-minikube-3997d7aab6a4
+ssh -i [private_key.pem] -L [local_port]:localhost:[remote_port] [username]@[remote_host]
+	
+
+
