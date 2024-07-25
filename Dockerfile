@@ -1,6 +1,8 @@
 FROM maven:3.9.8-amazoncorretto-21 as BUILD
 
-ADD repository.tar.gz /usr/share/maven/ref/
+#ADD repository.tar.gz /usr/share/maven/ref/
+RUN mvn -Dmaven.repo.local=/usr/share/maven/ref/repository clean package
+RUN tar cf /usr/share/maven/ref/repository.tar.gz /usr/share/maven/ref/repository
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
