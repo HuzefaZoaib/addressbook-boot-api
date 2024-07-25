@@ -47,8 +47,9 @@ eksctl version
 aws ec2 create-key-pair --region us-east-1 --key-name eks-cluster-keypair
 
 
-
-
-
+# ssh tunnel
+# https://cloudvesna.com/step-by-step-guide-running-kubernetes-on-aws-ec2-with-minikube-3997d7aab6a4
+ssh -i [private_key.pem] -L [local_port]:localhost:[remote_port] [username]@[remote_host]
+	
 
 
